@@ -6,12 +6,11 @@ import pages.components.CalendarComponent;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
 
-    private SelenideElement firstNameInput = $("#firstName"),
+    private final SelenideElement firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
             genderWrapper = $("#genterWrapper"),
@@ -26,72 +25,77 @@ public class RegistrationPage {
             submit = $("#submit");
 
 
+    CalendarComponent calendarComponent = new CalendarComponent();
 
-     CalendarComponent calendarComponent = new CalendarComponent();
-
-    public RegistrationPage openPage(){
+    public RegistrationPage openPage() {
         open("/automation-practice-form");
         return this;
     }
 
-    public RegistrationPage  setFirstName(String value) {
+    public RegistrationPage removeBanners() {
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+        return this;
+    }
+
+    public RegistrationPage setFirstName(String value) {
         firstNameInput.setValue(value);
         return this;
     }
 
-    public RegistrationPage  setLastName(String value) {
+    public RegistrationPage setLastName(String value) {
         lastNameInput.setValue(value);
         return this;
     }
 
-    public RegistrationPage  setEmail(String value) {
+    public RegistrationPage setEmail(String value) {
         userEmailInput.setValue(value);
         return this;
     }
 
-    public RegistrationPage  setGender(String value) {
+    public RegistrationPage setGender(String value) {
         genderWrapper.$(byText(value)).click();
         return this;
     }
 
-    public RegistrationPage  setUserNumber(String value) {
+    public RegistrationPage setUserNumber(String value) {
         userNumberInput.setValue(value);
         return this;
     }
 
-    public RegistrationPage setDateOfBirth(String day, String month, String year){
+    public RegistrationPage setDateOfBirth(String day, String month, String year) {
         calendarInput.click();
         calendarComponent.setDate(day, month, year);
         return this;
     }
 
-    public RegistrationPage  setSubjects(String value) {
+    public RegistrationPage setSubjects(String value) {
         subjectsInput.setValue(value).pressEnter();
-       return this;
+        return this;
     }
 
-    public RegistrationPage  setHobbies(String value) {
+    public RegistrationPage setHobbies(String value) {
         hobbiesInput.parent().$(byText(value)).click();
-         return this;
+        return this;
     }
 
-    public RegistrationPage  setPicture(String value) {
+    public RegistrationPage setPicture(String value) {
         pictureInput.uploadFromClasspath(value);
-         return this;
+        return this;
     }
 
-    public RegistrationPage  setAddress(String value) {
+    public RegistrationPage setAddress(String value) {
         addressInput.setValue(value);
-          return this;
+        return this;
     }
 
-    public RegistrationPage  setState(String value) {
+    public RegistrationPage setState(String value) {
         stateInput.click();
         $(byText(value)).click();
         return this;
     }
 
-    public RegistrationPage  setCity(String value) {
+    public RegistrationPage setCity(String value) {
         cityInput.click();
         $(byText(value)).click();
         submit.click();
@@ -104,12 +108,12 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage  setSubmit() {
+    public RegistrationPage setSubmit() {
         submit.click();
         return this;
     }
 
-    public RegistrationPage  visibleFirstName() {
+    public RegistrationPage visibleFirstName() {
         firstNameInput.shouldBe(visible);
         return this;
     }

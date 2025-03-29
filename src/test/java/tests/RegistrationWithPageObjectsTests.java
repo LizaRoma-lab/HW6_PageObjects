@@ -1,13 +1,9 @@
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
+package tests;
+
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import tests.TestBase;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
 public class RegistrationWithPageObjectsTests extends TestBase {
 
@@ -17,12 +13,13 @@ public class RegistrationWithPageObjectsTests extends TestBase {
     void successfulRegistrationTest() {
 
         registrationPage.openPage()
+                .removeBanners()
                 .setFirstName("Veronika")
                 .setLastName("Romanova")
                 .setEmail("nika@romanova.com")
                 .setGender("Female")
                 .setUserNumber("79871234567")
-                .setDateOfBirth("22","July","2005")
+                .setDateOfBirth("29", "March", "2025")
                 .setSubjects("Math")
                 .setHobbies("Reading")
                 .setPicture("cat.jfif")
@@ -34,7 +31,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .checkResult("Student Email", "nika@romanova.com")
                 .checkResult("Gender", "Female")
                 .checkResult("Mobile", "7987123456")
-                .checkResult("Date of Birth", "22 July,2005")
+                .checkResult("Date of Birth", "29 March,2025")
                 .checkResult("Subjects", "Maths")
                 .checkResult("Hobbies", "Reading")
                 .checkResult("Picture", "cat.jfif")
