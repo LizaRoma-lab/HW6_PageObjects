@@ -19,7 +19,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .setEmail("nika@romanova.com")
                 .setGender("Female")
                 .setUserNumber("79871234567")
-                .setDateOfBirth("29", "March", "2025")
+                .setDateOfBirth("22", "July", "2005")
                 .setSubjects("Math")
                 .setHobbies("Reading")
                 .setPicture("cat.jfif")
@@ -31,7 +31,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .checkResult("Student Email", "nika@romanova.com")
                 .checkResult("Gender", "Female")
                 .checkResult("Mobile", "7987123456")
-                .checkResult("Date of Birth", "29 March,2025")
+                .checkResult("Date of Birth", "22 July,2005")
                 .checkResult("Subjects", "Maths")
                 .checkResult("Hobbies", "Reading")
                 .checkResult("Picture", "cat.jfif")
@@ -51,7 +51,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         registrationPage.checkResult("Student Name", "Veronika Romanova")
                 .checkResult("Gender", "Female")
                 .checkResult("Mobile", "7987123456")
-                .checkResult("Date of Birth", "25 March,2025");
+                .checkResult("Date of Birth", "29 March,2025");
     }
 
     @Test
