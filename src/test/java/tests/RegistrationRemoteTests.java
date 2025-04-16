@@ -14,8 +14,7 @@ import java.util.Map;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 
@@ -34,6 +33,7 @@ public class RegistrationRemoteTests {
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
+
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
@@ -46,11 +46,14 @@ public class RegistrationRemoteTests {
 
     }
 
+
     @Test
     @Tag("demoqa")
     void successfulRegistrationTest() {
         step("Open form", () -> {
             open("/automation-practice-form");
+            executeJavaScript("$('#fixedban').remove()");
+            executeJavaScript("$('footer').remove()");
         });
         step("Fill form", () -> {
             $("#firstName").setValue("Veronika");
