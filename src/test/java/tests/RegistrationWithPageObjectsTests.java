@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import tests.TestBase;
@@ -9,6 +10,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
 
+    @Tag("simple")
     @Test
     void successfulRegistrationTest() {
 
