@@ -22,7 +22,7 @@ public class RegistrationRemoteTests {
     }
 
     @Test
-    @Tag("Demoqa")
+    @Tag("demoqa")
     void successfulRegistrationTest() {
         step("Open form", () -> {
             open("/automation-practice-form");
