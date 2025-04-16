@@ -10,7 +10,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
 
-    @Tag("simple")
+
     @Test
     void successfulRegistrationTest() {
 
