@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.sleep;
+import static java.lang.String.format;
 
 public class SysytemPropertiesTests {
 
@@ -32,5 +33,13 @@ public class SysytemPropertiesTests {
 
         //gradle property_test -Dbrowser=opera
         //opera
+    }
+
+    @Test
+    @Tag("hello")
+    void systemProperties4Test() {
+        String name = System.getProperty("name", "default student");
+        String message = format("Hello, %s!", name);
+        System.out.println(message);
     }
 }
