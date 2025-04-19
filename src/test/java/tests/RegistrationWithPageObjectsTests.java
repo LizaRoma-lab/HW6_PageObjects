@@ -42,6 +42,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
     @Test
     void successfulMinRegistrationTest() {
         registrationPage.openPage()
+                .removeBanners()
                 .setFirstName("Veronika")
                 .setLastName("Romanova")
                 .setGender("Female")
@@ -58,6 +59,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
     void unsuccessfulRegistrationWithoutGenderTest() {
 
         registrationPage.openPage()
+                .removeBanners()
                 .setFirstName("Veronika")
                 .setLastName("Romanova")
                 .setUserNumber("79871234567")
