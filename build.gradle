@@ -61,8 +61,3 @@ task property_test(type: Test) {
     }
 }
 
-task hello_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("hello")
-    }
-}
