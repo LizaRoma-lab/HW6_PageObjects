@@ -24,8 +24,8 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .setHobbies("Reading")
                 .setPicture("cat.jfif")
                 .setAddress("Some street 1")
-                .setState("Haryana")
-                .setCity("Panipat");
+                .setState("NCR")
+                .setCity("Delhi");
 
         registrationPage.checkResult("Student Name", "Veronika Romanova")
                 .checkResult("Student Email", "nika@romanova.com")
@@ -36,7 +36,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .checkResult("Hobbies", "Reading")
                 .checkResult("Picture", "cat.jfif")
                 .checkResult("Address", "Some street 1")
-                .checkResult("State and City", "Haryana Panipat");
+                .checkResult("State and City", "NCR Delhi");
     }
 
     @Test
