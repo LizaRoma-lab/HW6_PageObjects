@@ -70,9 +70,9 @@ public class RegistrationRemoteTests {
             $("#uploadPicture").uploadFromClasspath("cat.jfif");
             $("#currentAddress").setValue("Some street 1");
             $("#state").click();
-            $(byText("Haryana")).click();
+            $(byText("NCR")).click();
             $("#city").click();
-            $(byText("Panipat")).click();
+            $(byText("Delhi")).click();
             $("#submit").click();
         });
         step("Verify results", () -> {
@@ -86,7 +86,7 @@ public class RegistrationRemoteTests {
             $(".table-responsive").shouldHave(text("Reading"));
             $(".table-responsive").shouldHave(text("cat.jfif"));
             $(".table-responsive").shouldHave(text("Some street 1"));
-            $(".table-responsive").shouldHave(text("Haryana Panipat"));
+            $(".table-responsive").shouldHave(text("NCR Delhi"));
         });
 
 
