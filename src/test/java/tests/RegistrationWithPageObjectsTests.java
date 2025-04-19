@@ -51,7 +51,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         registrationPage.checkResult("Student Name", "Veronika Romanova")
                 .checkResult("Gender", "Female")
                 .checkResult("Mobile", "7987123456")
-                .checkResult("Date of Birth", "29 March,2025");
+                .checkResult("Date of Birth", "19 April,2025");
     }
 
     @Test
